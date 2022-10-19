@@ -1,0 +1,44 @@
+# ----------------------------------------------------------------------
+Activate.cmd
+Activate[.-]*.cmd
+Activate.sh
+Activate[.-]*.sh
+
+Deactivate.cmd
+Deactivate[.-]*.cmd
+Deactivate.sh
+Deactivate[.-]*.sh
+
+Setup[.-]*.cmd
+Setup[.-]*.sh
+
+# ----------------------------------------------------------------------
+Generated/**
+
+.pytest_cache/**
+__pycache__/**
+*.pyc
+*.pyo
+
+.coverage
+coverage.xml
+
+.vscode/*
+test_localsystem.txt
+
+# ----------------------------------------------------------------------
+.pylintrc
+
+Libraries/Python/Common_cpp_Development/src/Common_cpp_Development.egg-info/*
+
+Scripts/TesterPlugins/TestParsers/Examples/build/*
+Scripts/TesterPlugins/TestParsers/Examples/UnitTests/build/*
+
+Tools/ccache/v4.7.0/Linux/*/**
+Tools/ccache/v4.7.0/Windows/*/**
+
+Tools/cmake/v3.24.2/Linux/*/**
+Tools/cmake/v3.24.2/Windows/x64/*/**
+
+Tools/ninja/v1.11.1/Linux/*/**
+Tools/ninja/v1.11.1/Windows/*/**

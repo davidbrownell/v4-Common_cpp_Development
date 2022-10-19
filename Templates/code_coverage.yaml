@@ -1,0 +1,17 @@
+# These includes and excludes will apply to all tests in the directory
+# this file is placed in and its descendants.
+filter:
+  includes:
+    - ClassPrefix::*
+  excludes:
+    - Catch2::*
+    - std::*
+
+# The following are filters that are conditionally applied. The specified includes and excludes
+# are applied when the test filename matches the glob pattern.
+named_filters:
+  - glob: "*.cpp"
+    includes:
+      - example_namespace::*
+    excludes:
+      - details::*

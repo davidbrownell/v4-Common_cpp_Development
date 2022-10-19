@@ -1,0 +1,16 @@
+{
+    "binary_file_filters": {
+        "*/Add_UnitTest*": {
+            "*/Add.cpp": {
+                "excludes": [
+                    "Namespace::*",
+                    "IsNotCalled"
+                ]
+            }
+        },
+
+        "*/Subtract_UnitTest*": {
+            "*/Subtract.cpp": true
+        }
+    }
+}
