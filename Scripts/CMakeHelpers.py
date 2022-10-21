@@ -523,12 +523,12 @@ def _Impl(
 
                 if not dm.capabilities.is_headless:
                     values[3] = TextwrapEx.CreateAnsiHyperLinkEx(
-                        "file://{}".format(task_data_item.context.build_dir.as_posix()),
+                        "file:///{}".format(task_data_item.context.build_dir.as_posix()),
                         values[3],
                     )
 
                     values[4] = TextwrapEx.CreateAnsiHyperLinkEx(
-                        "file://{}".format(task_data_item.log_filename.as_posix()),
+                        "file:///{}".format(task_data_item.log_filename.as_posix()),
                         values[4],
                     )
 
