@@ -37,7 +37,7 @@ from Common_Foundation import SubprocessEx
 from Common_Foundation import TextwrapEx
 from Common_Foundation import Types
 
-from Common_FoundationEx.ExecuteTasks import TaskData, ExecuteTasks, Step1Type, Step2Type, Step3Type
+from Common_FoundationEx import ExecuteTasksEx
 from Common_FoundationEx.InflectEx import inflect
 
 
@@ -387,10 +387,10 @@ def _Impl(
     num_steps: int,
     execute_func: Callable[
         [
-            Path,                           # build_dir
-            Path,                           # log_filename
-            str,                            # configuration
-            Callable[[int, str], bool],     # on_status_func
+            Path,                                       # build_dir
+            Path,                                       # log_filename
+            str,                                        # configuration
+            Callable[[Optional[int], str], bool],       # on_status_func
         ],
         Tuple[int, Optional[str]],
     ],
@@ -421,19 +421,19 @@ def _Impl(
         ):
             # ----------------------------------------------------------------------
             def Step2Callback(
-                on_status_func: Callable[[str], None],
+                on_simple_status_func: Callable[[str], None],  # pylint: disable=unused-argument
             ):
                 return num_steps, Step3Callback
 
             # ----------------------------------------------------------------------
             def Step3Callback(
-                on_status_func: Callable[[int, str], bool],
+                status: ExecuteTasksEx.Status,
             ):
                 return execute_func(
                     context.build_dir,
                     context.log_filename,
                     context.configuration,
-                    on_status_func,
+                    status.OnProgress,
                 )
 
             # ----------------------------------------------------------------------
@@ -451,7 +451,7 @@ def _Impl(
         )
 
         task_data_items = [
-            TaskData(
+            ExecuteTasksEx.TaskData(
                 configuration,
                 TaskDataContext(
                     configuration,
@@ -463,7 +463,7 @@ def _Impl(
             for configuration in configurations
         ]
 
-        ExecuteTasks(
+        ExecuteTasksEx.ExecuteTasks(
             dm,
             desc,
             task_data_items,
