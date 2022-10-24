@@ -37,7 +37,7 @@ from Common_Foundation import SubprocessEx
 from Common_Foundation import TextwrapEx
 from Common_Foundation import Types
 
-from Common_FoundationEx import ExecuteTasksEx
+from Common_FoundationEx import ExecuteTasks
 from Common_FoundationEx.InflectEx import inflect
 
 
@@ -427,7 +427,7 @@ def _Impl(
 
             # ----------------------------------------------------------------------
             def Step3Callback(
-                status: ExecuteTasksEx.Status,
+                status: ExecuteTasks.Status,
             ):
                 return execute_func(
                     context.build_dir,
@@ -451,7 +451,7 @@ def _Impl(
         )
 
         task_data_items = [
-            ExecuteTasksEx.TaskData(
+            ExecuteTasks.TaskData(
                 configuration,
                 TaskDataContext(
                     configuration,
@@ -463,7 +463,7 @@ def _Impl(
             for configuration in configurations
         ]
 
-        ExecuteTasksEx.ExecuteTasks(
+        ExecuteTasks.ExecuteTasks(
             dm,
             desc,
             task_data_items,
