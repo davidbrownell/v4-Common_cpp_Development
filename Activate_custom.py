@@ -21,6 +21,7 @@ import textwrap
 from pathlib import Path
 from typing import Generator, List, Optional
 
+from Common_Foundation import DynamicPluginArchitecture                     # type: ignore  # pylint: disable=import-error,unused-import
 from Common_Foundation.Shell import Commands                                # type: ignore  # pylint: disable=import-error,unused-import
 from Common_Foundation.Shell.All import CurrentShell                        # type: ignore  # pylint: disable=import-error,unused-import
 from Common_Foundation.Streams.DoneManager import DoneManager               # type: ignore  # pylint: disable=import-error,unused-import
@@ -32,7 +33,6 @@ from RepositoryBootstrap import Configuration                               # ty
 from RepositoryBootstrap import Constants                                   # type: ignore  # pylint: disable=import-error,unused-import
 from RepositoryBootstrap import DataTypes                                   # type: ignore  # pylint: disable=import-error,unused-import
 from RepositoryBootstrap.ActivateActivity import ActivateActivity           # type: ignore  # pylint: disable=import-error,unused-import
-from RepositoryBootstrap.SetupAndActivate import DynamicPluginArchitecture  # type: ignore  # pylint: disable=import-error,unused-import
 
 
 # ----------------------------------------------------------------------
